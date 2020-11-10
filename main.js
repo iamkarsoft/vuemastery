@@ -10,5 +10,29 @@ const app = new Vue({
 		inStock: true,
 		boosted: true,
 		onSale: true,
+		details: [
+			"80% cotton",
+			"20% polyester"	,
+			"Gender-neutral"
+		],
+		variants: [
+			{
+				variantId: 2234,
+				variantColor: "blue",	
+			},
+			{
+				variantId: 2235,
+				variantColor: "white",	
+			},
+			{
+				variantId: 2234,
+				variantColor: "black",	
+			},
+		],
+		sizes: [
+			"small",
+			"medium",
+			"large"
+		],
 	}
 })

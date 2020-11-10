@@ -34,5 +34,6 @@ const app = new Vue({
 			"medium",
 			"large"
 		],
+		cart: 0,
 	}
 })

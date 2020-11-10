@@ -18,13 +18,13 @@
 			<img v-bind:src="image" alt="">
 		</div>
 		<div class=" w-full md:w-1/2">
-		<h1 class="text-3xl">{{product}}</h1>
+		<h1 class="text-3xl">{{ title}}</h1>
 		<div class="text-xl mt-4">
 			<ul class="list-disc">
 				<li class="mt-2" v-for="detail in details">{{detail}}</li>
 			</ul>
 		</div>
-		<div class="mt-4 color-box" :style="{backgroundColor: variant.variantColor}" v-for="variant in variants" :key="variant.variantId"  @mouseover="updateProduct(variant.variantImage)">
+		<div class="mt-4 color-box" :style="{backgroundColor: variant.variantColor}" v-for="(variant, index) in variants" :key="variant.variantId"  @mouseover="updateProduct(index)">
 		</div>
 
 		<div class="mt-4 flex">

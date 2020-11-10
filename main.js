@@ -4,12 +4,12 @@ const app = new Vue({
 	el: "#app",
 	data:{
 		product: 'Socks',
+		brand: 'Kamal',
 		description: 'These Socks are hell of a good one',
-		image: './assets/img/socks-white.jpg',
 		link: 'https://www.amazon.com',
-		inStock: true,
+		selectedVariant: 0,
 		boosted: false,
-		onSale: false,
+		
 		details: [
 			"80% cotton",
 			"20% polyester"	,
@@ -19,18 +19,28 @@ const app = new Vue({
 			{
 				variantId: 2234,
 				variantColor: "blue",
-				variantImage: "./assets/img/socks-blue.jpg"	
+				variantImage: "./assets/img/socks-blue.jpg"	,
+				variantQuantity: 20,
+				onSale: true,
 			},
 			{
 				variantId: 2235,
 				variantColor: "white",
 				variantImage: './assets/img/socks-white.jpg',
+				variantQuantity: 40,
+				onSale: false,
+
+
+
 
 			},
 			{
 				variantId: 2236,
 				variantColor: "black",	
 				variantImage: './assets/img/socks-black.jpg',
+				variantQuantity: 0,
+				onSale: false,
+
 
 			},
 		],
@@ -41,12 +51,13 @@ const app = new Vue({
 		],
 		cart: 0,
 	},
+
 	methods: {
 		addToCart(){
 			this.cart+=1;
 		},
-		updateProduct(variantImage){
-			this.image = variantImage;
+		updateProduct(index){
+			this.selectedVariant = index;
 
 		},
 		removeFromCart(){
@@ -54,5 +65,20 @@ const app = new Vue({
 			this.cart-=1;
 			}
 		},
+	},
+
+	computed:{
+		title(){
+			return this.brand + ' ' + this.product;
+		},
+		image(){
+			return this.variants[this.selectedVariant].variantImage;
+		},
+		inStock(){
+			return this.variants[this.selectedVariant].variantQuantity;
+		},
+		onSale(){
+			return this.variants[this.selectedVariant].onSale;
+		}
 	},
 })

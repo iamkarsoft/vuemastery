@@ -6,6 +6,9 @@ const app = new Vue({
 		product: 'Socks',
 		description: 'These Socks are hell of a good one',
 		image: './assets/img/socks-white.jpg',
-		link: 'https://www.amazon.com'
+		link: 'https://www.amazon.com',
+		inStock: true,
+		boosted: true,
+		onSale: true,
 	}
 })

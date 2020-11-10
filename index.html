@@ -20,6 +20,10 @@
 		<div class=" w-full md:w-1/2">
 		<h1 class="text-3xl">{{product}}</h1>
 		<p class="text-xl mt-4">{{description}}</p>
+		<p class="mt-2" v-show="boosted">Boosted Product</p>
+		<p class="mt-2" v-if="inStock">In Stock</p>
+		<p class="mt-2" v-else>Out of Stock</p>
+		<p class="mt-2 " v-if="onSale"><span class="bg-red-500 text-white text-xl border-4 rounded p-1">On Sale!!</span></p>
 		<a :href="link" target="_blank" class="mt-4">Alternatives</a>
 			
 		</div>

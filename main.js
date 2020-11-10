@@ -1,11 +1,23 @@
 
+Vue.component('product-details',{
+	props:{
+		details:{
+			type: Array,
+			required: true,
+		}
+	},
+	template: ` 
+			<ul class="list-disc">
+				<li class="mt-2" v-for="detail in details">{{detail}}</li>
+			</ul>
+	`,
+})
 
 Vue.component('product',{
 	props:{
 		premium:{
 			type: Boolean,
 			required: true,
-
 		}
 	},
 	template:` 
@@ -16,9 +28,8 @@ Vue.component('product',{
 		<div class=" w-full md:w-1/2">
 		<h1 class="text-3xl">{{ title}}</h1>
 		<div class="text-xl mt-4">
-			<ul class="list-disc">
-				<li class="mt-2" v-for="detail in details">{{detail}}</li>
-			</ul>
+			
+		<product-details :details="details"></product-details>
 		</div>
 		<div class="mt-4 color-box" :style="{backgroundColor: variant.variantColor}" v-for="(variant, index) in variants" :key="variant.variantId"  @mouseover="updateProduct(index)">
 		</div>
@@ -52,7 +63,6 @@ data(){
 		link: 'https://www.amazon.com',
 		selectedVariant: 0,
 		boosted: false,
-		
 		details: [
 			"80% cotton",
 			"20% polyester"	,

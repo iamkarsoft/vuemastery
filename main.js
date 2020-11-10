@@ -51,7 +51,7 @@ Vue.component('product',{
 		<button class="bg-blue-700 mx-4 text-white p-4 rounded hover:bg-blue-400 mt-2" :disabled="!inStock" v-on:click="addToCart" :class="{'disabled': !inStock}">Add to Cart</button>
 		<button class="bg-red-700 mx-4 text-white p-4 rounded hover:bg-red-400 mt-2" :disabled="!inStock" v-on:click="removeFromCart" :class="{'disabled': !inStock}">Remove from Cart</button>
 			</div>
-		<span class="border-4 px-4 mx-4">Cart: {{cart}} </span>
+	
 		</div>
 		</div>
 		</div>
@@ -102,13 +102,13 @@ data(){
 			"medium",
 			"large"
 		],
-		cart: 0,
+		
 	}
 },
 
 	methods: {
 		addToCart(){
-			this.cart+=1;
+			this.$emit('add-to-cart',this.variants[this.selectedVariant].variantId);
 		},
 		updateProduct(index){
 			this.selectedVariant = index;
@@ -116,7 +116,7 @@ data(){
 		},
 		removeFromCart(){
 			if(this.cart!=0){
-			this.cart-=1;
+				this.$emit('remove-from-cart',this.variants[this.selectedVariant].variantId);
 			}
 		},
 	},
@@ -148,6 +148,20 @@ const app = new Vue({
 	el: "#app",
 	data: {
 		premium: false,
+		cart: [],
+	},
+	methods: {
+		updateCart(id){
+			this.cart.push(id);
+		},
+
+		removeCart(id){
+			      for(var i = this.cart.length - 1; i >= 0; i--) {
+            if (this.cart[i] === id) {
+               this.cart.splice(i, 1);
+            }
+		}
 	}
+		}
 	
 })

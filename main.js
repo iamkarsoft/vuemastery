@@ -18,15 +18,20 @@ const app = new Vue({
 		variants: [
 			{
 				variantId: 2234,
-				variantColor: "blue",	
+				variantColor: "blue",
+				variantImage: "./assets/img/socks-blue.jpg"	
 			},
 			{
 				variantId: 2235,
-				variantColor: "white",	
+				variantColor: "white",
+				variantImage: './assets/img/socks-white.jpg',
+
 			},
 			{
-				variantId: 2234,
+				variantId: 2236,
 				variantColor: "black",	
+				variantImage: './assets/img/socks-black.jpg',
+
 			},
 		],
 		sizes: [
@@ -35,5 +40,19 @@ const app = new Vue({
 			"large"
 		],
 		cart: 0,
-	}
+	},
+	methods: {
+		addToCart(){
+			this.cart+=1;
+		},
+		updateProduct(variantImage){
+			this.image = variantImage;
+
+		},
+		removeFromCart(){
+			if(this.cart!=0){
+			this.cart-=1;
+			}
+		},
+	},
 })

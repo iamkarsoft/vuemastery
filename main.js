@@ -8,8 +8,8 @@ const app = new Vue({
 		image: './assets/img/socks-white.jpg',
 		link: 'https://www.amazon.com',
 		inStock: true,
-		boosted: true,
-		onSale: true,
+		boosted: false,
+		onSale: false,
 		details: [
 			"80% cotton",
 			"20% polyester"	,

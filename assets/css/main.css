@@ -1,0 +1,13 @@
+.color-box{
+	width: 40px;
+	height: 40px;
+	background-color: white;
+}
+
+.line-through{
+	text-decoration: line-through;
+}
+
+.disabled{
+	background: #e9e9e9;
+}

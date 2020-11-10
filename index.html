@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Product App</title>
+    <link rel="stylesheet" href="">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-300">
+	<nav class="nav-bar w-full mb-4">
+		
+	</nav>
+	<div id="app" class="w-2/3 mx-auto">
+		<div class="product mt-4 flex">
+		<div class="product-img w-full md:w-1/2">
+			<img v-bind:src="image" alt="">
+		</div>
+		<div class=" w-full md:w-1/2">
+		<h1 class="text-3xl">{{product}}</h1>
+		<p class="text-xl mt-4">{{description}}</p>
+		<a :href="link" target="_blank" class="mt-4">Alternatives</a>
+			
+		</div>
+		</div>
+	</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="main.js"></script>
+</body>
